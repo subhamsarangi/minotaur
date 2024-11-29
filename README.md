@@ -14,7 +14,7 @@
 ### run it directly
     `/home/homelander/minotaur/prometheus-2.40.0.linux-amd64/prometheus --config.file=/home/homelander/minotaur/prometheus-2.40.0.linux-amd64/prometheus.yml`
 
-### make a prometheus systemd service
+### or make a prometheus systemd service
 - Create a systemd service file:
     ```
     [Unit]
