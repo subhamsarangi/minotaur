@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated OTPs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Body styling with a multi-gradient background */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to top left, #2f2a28, #5b3fa6, #616aa8, #0c7a9e, #474a65);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to right, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        p {
+            font-size: 1.25rem;
+            max-width: 80%;
+            margin: 0 auto;
+            padding: 1rem;
+            border: 1px solid #fff;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            overflow-wrap: break-word;
+        }
+
+        .otp-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .otp-list {
+            max-width: 80%;
+            font-size: 1.1rem;
+            text-align: left;
+            word-wrap: break-word;
+            margin-top: 1.5rem;
+            color: #fffb00;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff6f61, #ff1493);
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #ff1493, #ff6f61);
+        }
+
+        .hide-btn {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .hide-btn:hover {
+            color: #ffeb3b;
+        }
+
+        .otp-list span {
+            display: block;
+            margin: 10px 0;
+            color: #ffeb3b;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="otp-container">
+        <h1>Generated OTPs</h1>
+        <p>The following OTPs have been generated:</p>
+        <div class="otp-list">
+            <span>{{ otp_list }}</span>
+        </div>
+        <button class="btn" id="copy-btn">Copy OTPs</button>
+        <div id="hide-btn" class="hide-btn">Hide OTPs</div>
+    </div>
+
+    <!-- jQuery for interaction -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Copy OTPs to clipboard
+            $('#copy-btn').click(function() {
+                const otpText = $('.otp-list span').text();
+                navigator.clipboard.writeText(otpText).then(function() {
+                    alert('OTPs copied to clipboard!');
+                });
+            });
+
+            // Hide OTPs when 'Hide OTPs' button is clicked
+            $('#hide-btn').click(function() {
+                $('.otp-list').slideUp();
+                $(this).hide();
+            });
+        });
+    </script>
+</body>
+</html>

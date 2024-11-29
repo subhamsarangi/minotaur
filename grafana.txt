@@ -1,0 +1,18 @@
+sample Dashboard for Grafana
+
+Total Requests Panel:
+Query: flask_http_request_total
+Type: Stat or Time Series
+
+Request Duration Panel:
+Query: flask_http_request_duration_seconds
+Type: Histogram or Graph
+
+
+Garbage Collection Panel:
+Query: python_gc_collections_total
+Type: Time Series
+
+Error Count Panel:
+Query: flask_http_request_exceptions_total
+Type: Stat or Time Series
